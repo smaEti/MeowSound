@@ -5,21 +5,20 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import java.util.Date;
 
 @Entity
 public class Blog {
     private @Id @GeneratedValue long id;
     private String imageURL;
     private String text;
-    private Date created_at;
+    private long created_at;
     @ManyToOne
     private Artist artist;
 
     Blog() {
     }
 
-    Blog(String imageURL, String text, Date created_at, Artist artist) {
+    Blog(String imageURL, String text, long created_at, Artist artist) {
         this.artist = artist;
         this.created_at = created_at;
         this.text = text;

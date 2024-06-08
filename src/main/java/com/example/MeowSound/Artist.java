@@ -1,9 +1,12 @@
 package com.example.MeowSound;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 
 @Entity
@@ -11,21 +14,20 @@ public class Artist {
     private @Id @GeneratedValue long id;
     private boolean isVerified;
     private String thumbnail;
+    private String name;
     @OneToOne
     private MyUser user;
+    @OneToMany
+    private List<Blog> blogs = new ArrayList<Blog>();
 
     public Artist() {
     }
 
-    public Artist(boolean isVerified, String thumbnail) {
-        this.isVerified = isVerified;
-        this.thumbnail = thumbnail;
-    }
-
-    public Artist(MyUser user, boolean isVerified, String thumbnail) {
+    public Artist(MyUser user, boolean isVerified, String thumbnail, String name) {
         this.user = user;
         this.isVerified = isVerified;
         this.thumbnail = thumbnail;
+        this.name = name;
     }
 
     @Override
@@ -37,6 +39,7 @@ public class Artist {
         Artist artist = (Artist) o;
         return Objects.equals(id, artist.id) &&
                 Objects.equals(isVerified, artist.isVerified) &&
+                Objects.equals(name, artist.name) &&
                 Objects.equals(thumbnail, artist.thumbnail);
     }
 
@@ -54,6 +57,18 @@ public class Artist {
         this.id = id;
     }
 
+    public List<Blog> getBlogs() {
+        return blogs;
+    }
+
+    public void setBlogs(List<Blog> blogs) {
+        this.blogs = blogs;
+    }
+
+    public void addBlog(Blog blog) {
+        blogs.add(blog);
+    }
+
     public boolean getIsVerified() {
         return isVerified;
     }
@@ -68,6 +83,14 @@ public class Artist {
 
     public void setThumbnail(String thumbnail) {
         this.thumbnail = thumbnail;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public MyUser getUser() {
