@@ -12,7 +12,7 @@ public class Artist {
     private boolean isVerified;
     private String thumbnail;
     @OneToOne
-    private User user;
+    private MyUser user;
 
     public Artist() {
     }
@@ -22,7 +22,7 @@ public class Artist {
         this.thumbnail = thumbnail;
     }
 
-    public Artist(User user, boolean isVerified, String thumbnail) {
+    public Artist(MyUser user, boolean isVerified, String thumbnail) {
         this.user = user;
         this.isVerified = isVerified;
         this.thumbnail = thumbnail;
@@ -70,11 +70,11 @@ public class Artist {
         this.thumbnail = thumbnail;
     }
 
-    public User getUser() {
+    public MyUser getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(MyUser user) {
         this.user = user;
     }
 

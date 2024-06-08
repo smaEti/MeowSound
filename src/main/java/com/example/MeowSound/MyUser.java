@@ -6,16 +6,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class User {
+public class MyUser {
     private @Id @GeneratedValue long id;
     private String username;
     private String password;
     private String profilePicture;
 
-    public User() {
+    public MyUser() {
     }
 
-    public User(String username, String password, String profilePicture) {
+    public MyUser(String username, String password, String profilePicture) {
         this.username = username;
         this.password = password;
         this.profilePicture = profilePicture;
@@ -27,7 +27,7 @@ public class User {
             return true;
         if (o == null || getClass() != o.getClass())
             return false;
-        User user = (User) o;
+        MyUser user = (MyUser) o;
         return Objects.equals(id, user.id) &&
                 Objects.equals(username, user.username) &&
                 Objects.equals(password, user.password) &&
@@ -74,7 +74,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "MyUser{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
