@@ -12,9 +12,6 @@ public class MyUser {
     private String password;
     private String profilePicture;
 
-    public MyUser() {
-    }
-
     public MyUser(String username, String password, String profilePicture) {
         this.username = username;
         this.password = password;
@@ -40,13 +37,13 @@ public class MyUser {
         return Objects.hash(id, username, password, profilePicture);
     }
 
-    public Long getId() {
-        return id;
-    }
+    // public Long getId() {
+    //     return id;
+    // }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    // public void setId(Long id) {
+    //     this.id = id;
+    // }
 
     public String getUsername() {
         return username;

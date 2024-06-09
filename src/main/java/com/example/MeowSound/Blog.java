@@ -15,9 +15,6 @@ public class Blog {
     @ManyToOne
     private Artist artist;
 
-    Blog() {
-    }
-
     Blog(String imageURL, String text, long created_at, Artist artist) {
         this.artist = artist;
         this.created_at = created_at;
