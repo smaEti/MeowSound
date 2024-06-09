@@ -19,6 +19,8 @@ public class Artist {
     private MyUser user;
     @OneToMany
     private List<Blog> blogs = new ArrayList<Blog>();
+    @OneToMany
+    private List<Album> albums = new ArrayList<Album>();
 
     public Artist() {
     }
@@ -49,13 +51,13 @@ public class Artist {
         return Objects.hash(id, isVerified, thumbnail);
     }
 
-    public Long getId() {
-        return id;
-    }
+    // public Long getId() {
+    //     return id;
+    // }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    // public void setId(Long id) {
+    //     this.id = id;
+    // }
 
     public List<Blog> getBlogs() {
         return blogs;
@@ -103,11 +105,22 @@ public class Artist {
 
     @Override
     public String toString() {
+        String StringBlogs = new String();
+        String StringAlbums = new String();
+        for (final Blog blog : blogs) {
+            StringBlogs += blog.toString() + ',';
+        }
+        for (final Album album : albums) {
+            StringAlbums += album.toString() + ',';
+        }
         return "Artist{" +
                 "id=" + id +
                 ", isVerified='" + isVerified + '\'' +
                 ", thumbnail='" + thumbnail + '\'' +
+                ", name='" + name + '\'' +
                 ", user='" + user.toString() + '\'' +
+                ", albums='" + StringAlbums + '\'' +
+                ", blogs='" + StringBlogs + '\'' +
                 '}';
     }
 }
