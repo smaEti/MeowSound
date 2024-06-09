@@ -2,6 +2,7 @@ package com.example.MeowSound;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -14,11 +15,15 @@ public class AudioFile {
     private Artist artist;
     private String title;
     private String audioFileURL;
+    @Column(columnDefinition = "TEXT")
     private String lyrics;
     private int length;
     @ManyToOne
     private Album album;
     private long created_at;
+
+    public AudioFile() {
+    }
 
     AudioFile(Artist artist, String title, String audioFileURL, String lyrics, int length, Album album,
             long created_at) {

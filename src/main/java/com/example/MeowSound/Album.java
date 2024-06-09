@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Album {
@@ -17,8 +18,10 @@ public class Album {
     private String title;
     private int audioFileCount;
     private long created_at;
+    @OneToMany
     private List<AudioFile> audioFiles = new ArrayList<AudioFile>();
 
+    public Album(){}
     public Album(String title, Artist artist, long created_at, List<AudioFile> audioFiles) {
         this.title = title;
         this.artist = artist;
@@ -89,7 +92,7 @@ public class Album {
                 ", title='" + title + '\'' +
                 ", audioFileCount='" + audioFileCount + '\'' +
                 ", created_at='" + created_at + '\'' +
-                ", audioFiles='" + created_at + '\'' +
+                // ", audioFiles='" + created_at + '\'' +
                 '}';
     }
 }
