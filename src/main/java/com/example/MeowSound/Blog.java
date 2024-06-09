@@ -69,7 +69,7 @@ public class Blog {
         this.imageURL = imageURL;
     }
 
-    public Artist geArtist() {
+    public Artist getArtist() {
         return this.artist;
     }
 
